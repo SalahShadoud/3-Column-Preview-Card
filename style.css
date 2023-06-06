@@ -1,0 +1,229 @@
+/* ---------- Initialization ---------- */
+
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+
+    --transparent-white: hsla(0, 0%, 100%, 0.75);
+    --light-gray: hsl(0, 0%, 95%);
+
+    --fs-regular: 15px;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --ff-big-shoulders: 'Big Shoulders Display', cursive;
+    --ff-lexend-deca: 'Lexend Deca', sans-serif;
+}
+
+/* CSS Resets */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+    height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+
+/* ---------- General ---------- */
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+
+    font-size: var(--fs-regular);
+    font-family: var(--ff-lexend-deca);
+    font-weight: var(--fw-regular);
+    padding-inline: 1rem;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    background: var(--light-gray);
+    width: 100%;
+    padding-block: 5px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.attribution a {
+    color: var(--bright-orange);
+}
+
+
+/* ---------- Utilities ---------- */
+
+.flex-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Wrapper ---------- */
+
+.wrapper {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    max-width: 930px;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.card {
+    padding-block: 3rem;
+    padding-inline: 3.15rem;
+    gap: 5rem;
+    color: var(--transparent-white);
+}
+
+.card:nth-child(1) {
+    background: var(--bright-orange);
+}
+
+.card:nth-child(2) {
+    background: var(--dark-cyan);
+}
+
+.card:nth-child(3) {
+    background: var(--very-dark-cyan);
+}
+
+.content {
+    gap: 1.5rem;
+}
+
+.heading {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: white;
+    font-family: var(--ff-big-shoulders);
+}
+
+.paragraph {
+    height: 112.5px;
+    text-overflow: ellipsis;
+}
+
+button {
+    border: 2px solid white;
+    background: white;
+    border-radius: 2rem;
+    padding-inline: 2rem;
+    padding-block: .8rem;
+    width: fit-content;
+    font-weight: var(--fw-bold);
+}
+
+button[data-car="sedans"] {
+    color: var(--bright-orange);
+}
+
+button[data-car="suvs"] {
+    color: var(--dark-cyan);
+}
+
+button[data-car="luxury"] {
+    color: var(--very-dark-cyan);
+}
+
+button:hover {
+    color: white;
+    background: transparent;
+}
+
+
+/* ---------- Media Queries ---------- */
+
+@media (max-width: 835px) {
+
+    body {
+        min-height: 200vh;
+    }
+
+    .card {
+        max-width: 450px;
+    }
+
+    .wrapper {
+        grid-template-columns: none;
+        grid-template-rows: repeat(auto-fill, 1fr);
+    }
+
+    .card {
+        gap: 2rem;
+        padding-inline: 3.3rem;
+    }
+
+}
